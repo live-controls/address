@@ -1,6 +1,6 @@
 {
     "name": "live-controls/address",
-    "description": "Simple address handling in Laravel",
+    "description": "Simple address manipulation for Laravel with database storage",
     "type": "library",
     "license": "MIT",
     "autoload": {
