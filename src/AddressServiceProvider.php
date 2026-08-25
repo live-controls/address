@@ -21,7 +21,7 @@ class AddressServiceProvider extends ServiceProvider
       // Export the migration    
       if(!class_exists('CreateFlowRunsTable')){     
         $this->publishes([
-          __DIR__.'/../database/migrations/create_address_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()).'_create_flow_runs_table.php'),              
+          __DIR__.'/../database/migrations/create_address_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()).'_create_address_table.php'),              
         ], 'live-controls.address.migrations');     
       }    
     }
