@@ -1,0 +1,28 @@
+{
+    "name": "live-controls/address",
+    "description": "Simple address handling in Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LiveControls\\Address\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roman Wanner",
+            "email": "60240491+daredloco@users.noreply.github.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LiveControls\\Address\\AddressServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^11",
+        "larastan/larastan": "^3.0"
+    }
+}
