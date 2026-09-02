@@ -24,6 +24,9 @@ class CreateAddressTable extends Migration
             $table->string('complement')->nullable();
             $table->string('neighborhood');
 
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
+
             $table->morphs('addressable');
 
             $table->timestamps();

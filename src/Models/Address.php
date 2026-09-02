@@ -24,7 +24,10 @@ class Address extends Model
         'street',
         'number',
         'complement',
-        'neighborhood'
+        'neighborhood',
+
+        'longitude',
+        'latitude',
     ];
 
     public function addressable(): MorphTo
