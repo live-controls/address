@@ -6,7 +6,7 @@ Simple address manipulation for Laravel with database storage
 ```bash
 composer require live-controls/address;
 ```
-2) Publish migrations
+2) Publish migrations:
 ```bash
 php artisan vendor:publish --tag="live-controls.address.migrations";
 ```
