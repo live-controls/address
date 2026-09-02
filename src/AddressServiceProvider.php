@@ -15,7 +15,7 @@ class AddressServiceProvider extends ServiceProvider
   {
     if($this->app->runningInConsole()){
       $this->publishes([     
-        __DIR__.'/../config/config.php' => config_path('live-controls.address.config.php'),
+        __DIR__.'/../config/config.php' => config_path('live-controls.address.php'),
       ], 'live-controls.address.config');   
 
       // Export the migration    
