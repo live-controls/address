@@ -16,14 +16,11 @@ class AddressServiceProvider extends ServiceProvider
     if($this->app->runningInConsole()){
       $this->publishes([     
         __DIR__.'/../config/config.php' => config_path('live-controls.address.php'),
-      ], 'live-controls.address.config');   
+      ], 'live-controls.address.config');
 
-      // Export the migration    
-      if(!class_exists('CreateFlowRunsTable')){     
-        $this->publishes([
-          __DIR__.'/../database/migrations/create_address_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()).'_create_address_table.php'),              
-        ], 'live-controls.address.migrations');     
-      }    
+      $this->publishesMigrations([
+        __DIR__.'/../database/migrations' => database_path('migrations'),
+      ], 'live-controls.address.migrations');
     }
   }
 }
