@@ -41,6 +41,6 @@ return new class extends Migration
      */     
     public function down()     
     {        
-        Schema::dropIfExists(config('live-controls.address.config.address_table', 'address'));    
+        Schema::dropIfExists(config('live-controls.address.config.address_table', 'addresses'));    
     }
 };
