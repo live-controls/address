@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
+/**
+ * @property string|null $key
+ * @property string $country_code
+ * @property string $state
+ * @property string $city
+ * @property string $postal_code
+ * @property string $street
+ * @property string $number
+ * @property string|null $complement
+ * @property string $neighborhood
+ * @property string|null $longitude
+ * @property string|null $latitude
+ */
 class Address extends Model
 {
     public function __construct(array $attributes = [])
