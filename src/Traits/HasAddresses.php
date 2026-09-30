@@ -60,4 +60,9 @@ trait HasAddresses
             'key' => $key
         ], $input);
     }
+    
+    public function deleteAddress(string $key): void
+    {
+        $this->addresses()->where('key', $key)->delete();
+    }
 }
