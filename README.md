@@ -12,16 +12,15 @@ php artisan vendor:publish --tag="live-controls.address.migrations";
 ```
 
 # Single address
-1) Add the following line to the model you want to have a single address for:
+1) Add the following trait to your model:
 ```php
-/**
- * Returns the address of the organization
- *
- * @return MorphOne<Address,$this>
- */
-public function address(): MorphOne
+use LiveControls\Address\Traits\HasAddress;
+
+class SomeModel extends Model
 {
-    return $this->morphOne(Address::class, 'addressable');
+    use HasAddress;
+
+    /* ... */
 }
 ```
 
@@ -40,7 +39,7 @@ $address = [
     'longitude' => -44.0021370,
 ];
 
-$model->address()->updateOrCreate([], $address);
+$model->updateAddress($address);
 ```
 
 3) To return it's Address model simply call:
@@ -48,24 +47,27 @@ $model->address()->updateOrCreate([], $address);
 $model->address;
 ```
 
-# Multiple addresses
-1) Add the following line to the model you want to have multiple addresses for:
+4) To remove the Address do:
 ```php
-/**
- * Returns the address of the organization
- *
- * @return MorphMany<Address,$this>
- */
-public function addresses(): MorphMany
+$model->deleteAddress();
+```
+
+# Multiple addresses
+1) Add the following trait to your model:
+```php
+use LiveControls\Address\Traits\HasAddresses;
+
+class SomeModel extends Model
 {
-    return $this->morphMany(Address::class, 'addressable');
+    use HasAddresses;
+
+    /* ... */
 }
 ```
 
 2) To store the addresses afterwards simply call:
 ```php
 $address = [
-    'key' => 'main', //This line is important for multiple addresses as you can use this as index for the address
     'country_code' => 'BR',
     'state' => 'MG',
     'city' => 'Belo Horizonte',
@@ -78,10 +80,15 @@ $address = [
     'longitude' => -44.0021370,
 ];
 
-$model->addresses()->create($address);
+$model->updateAddress('main', $address);
 ```
 
 3) To return it's Address model simply call:
 ```php
-$model->addresses()->where('key', 'main')->first();
+$model->addressWithKey('main');
+```
+
+4) To remove the Address do:
+```php
+$model->deleteAddress('main');
 ```
