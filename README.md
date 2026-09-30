@@ -11,6 +11,20 @@ composer require live-controls/address;
 php artisan vendor:publish --tag="live-controls.address.migrations";
 ```
 
+# Address Model Fields
+The address model has the following fields:
+* key: nullable|string|index
+* country_code: string
+* state: string
+* city: string
+* postal_code: string
+* street: string
+* number: string
+* complement: nullable|string
+* neighborhood: string
+* latitude: nullable|decimal
+* longitude: nullable|decimal
+
 # Single address
 1) Add the following trait to your model:
 ```php
